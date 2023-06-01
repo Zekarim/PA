@@ -1,0 +1,27 @@
+{
+  "data_included_until": "2023-05-08",
+  "generated_by": "https://api.tournesol.app/",
+  "tournesol_version": "4a87cb23e0135b1f3c92c59541e6d3c30a36b367",
+  "license": "ODC-By-1.0",
+  "algorithms_parameters": {
+    "byztrust": {
+      "SINK_VOUCH": 5,
+      "TRUSTED_EMAIL_PRETRUST": 0.8,
+      "VOUCH_DECAY": 0.8
+    },
+    "mehestan": {
+      "ALPHA": 1.0,
+      "R_MAX": 10.0,
+      "W": 20.0,
+      "SCALING_WEIGHT_CALIBRATION": 20.0,
+      "VOTE_WEIGHT_PUBLIC_RATINGS": 1.0,
+      "VOTE_WEIGHT_PRIVATE_RATINGS": 0.5,
+      "OVER_TRUST_BIAS": 2,
+      "OVER_TRUST_SCALE": 0.1,
+      "MAX_SCALED_SCORE": 100.0,
+      "POLL_SCALING_MIN_CONTRIBUTORS": 4,
+      "POLL_SCALING_QUANTILE": 0.75,
+      "POLL_SCALING_SCORE_AT_QUANTILE": 25.0
+    }
+  }
+}
