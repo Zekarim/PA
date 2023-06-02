@@ -1,6 +1,6 @@
 # Predicting Video Ratings for Users
 
-This repository contains code and notebooks for predicting video ratings for users using different algorithms and libraries. The implemented algorithms and their performances are discussed in detail in the following sections.
+This repository contains code and notebooks for predicting video ratings for users using different algorithms and libraries.
 
 ## 5.2.1. Preprocessing Data
 
@@ -13,9 +13,20 @@ The `prepare.ipynb` notebook focuses on the preprocessing steps performed on the
 5. Rating scale transformation: The original rating scale, ranging from -100 to 100, is transformed into a new scale ranging from 0 to 10. This transformation enables consistency and ease of interpretation.
 6. Saving preprocessed data: The preprocessed dataset is saved as a CSV file named "data_parameter.csv", where "parameter" represents the value used for filtering the users based on the number of ratings.
 
-The preprocessing steps ensure that the dataset is refined and ready for further analysis and model implementation.
+The preprocessing steps ensure that the datasets are refined and ready for further analysis and model implementation.
 
-## 5.2.2. Implicit Recommendation using ALS
+## 5.2.2. ALS Recommendation
+
+The `als.ipynb` notebook demonstrates the implementation of the Alternating Least Squares (ALS) algorithm for implicit feedback data. The following steps are performed:
+
+1. Preprocessing Data: The code loads the video rating data from a CSV file (`data_10.csv`) and performs necessary preprocessing steps, including dropping missing values, converting categorical names into numerical IDs, and creating a lookup frame for video ID to video name mapping.
+2. ALS Implementation: The code defines the `implicit_als` function, which takes a sparse user-by-item matrix as input and iteratively computes user and item vectors using the ALS formulas. The function returns user vectors (`X`) and item vectors (`Y`).
+3. Model Training: The `implicit_als` function is called with the sparse matrix `data_sparse` as input to train the ALS model. The model is trained by iterating over specified parameters, such as the confidence rate (`alpha_val`), the number of iterations, the regularization value (`lambda_val`), and the number of latent features.
+4. User Recommendations: The code defines the `recommend` function, which generates personalized video recommendations for a given user based on the trained ALS model. The function takes the user ID, user and item vectors, item lookup frame, and the desired number of recommendations as input. It calculates recommendation scores by taking the dot-product of user vectors with item vectors and returns a DataFrame with recommended video names and scores.
+5. Generating Recommendations: The `recommend` function is called to generate video recommendations for a user with ID 2 (`user_id`). The recommendations are then printed.
+The implementation of the ALS algorithm for implicit feedback data allows the generation of personalized video recommendations based on user-item interactions. By training the model on the provided dataset and leveraging the computed user and item vectors, it becomes possible to recommend videos that align with users' preferences.
+
+## 5.2.3. Implicit Recommendation using ALS
 
 The `implicit_als_test.ipynb` notebook explores the application of the Alternating Least Squares (ALS) algorithm for predicting video ratings based on user-item interactions. The following steps are performed:
 
@@ -28,7 +39,7 @@ The `implicit_als_test.ipynb` notebook explores the application of the Alternati
 
 The notebook provides insights into the model's performance and the impact of the minimum rating parameter on the recommendation accuracy.
 
-## 5.2.3. ALS with Implicit Library
+## 5.2.4. ALS with Implicit Library
 
 The `implicit_als_test.ipynb` notebook provides a code snippet for implementing the ALS algorithm using the Implicit library. The following steps are performed:
 
@@ -47,7 +58,7 @@ The `implicit_als_test.ipynb` notebook provides a code snippet for implementing 
 
 The notebook provides insights into the model's performance, parameter tuning, and recommendation generation using the ALS algorithm from the Implicit library.
 
-## 5.2.4. SVD++ with Surprise Library
+## 5.2.5. SVD++ with Surprise Library
 
 The `surprise_svdpp.ipynb` notebook provides a code snippet for implementing the SVD++ algorithm using the Surprise library. The following steps are performed:
 
